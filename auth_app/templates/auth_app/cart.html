@@ -45,6 +45,12 @@
 
         <div class="text-end mt-4">
             <h4>مجموع کل: <span class="text-success">{{ total_cart_price }}</span> تومان</h4>
+            {% if cart_details %}
+  <div class="text-center mt-4">
+      <a href="{% url 'checkout' %}" class="btn btn-success">ثبت سفارش</a>
+  </div>
+{% endif %}
+
         </div>
 
     {% else %}
