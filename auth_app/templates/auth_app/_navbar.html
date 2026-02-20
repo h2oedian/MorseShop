@@ -1,0 +1,31 @@
+{% load static %}
+<header style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid #eee;">
+  
+  <div style="display:flex;gap:14px;align-items:center;">
+    <a href="{% url 'home' %}" style="text-decoration:none;font-weight:700;">MoresShop</a>
+    <a href="{% url 'home' %}" style="text-decoration:none;">محصولات</a>
+  </div>
+
+  <nav style="display:flex;gap:12px;align-items:center;">
+    
+    {% if user.is_authenticated %}
+      
+      {% if user.is_superuser %}
+        <a href="/admin/" style="text-decoration:none;">پنل مدیریت</a>
+        <a href="/admin/auth_app/product/" style="text-decoration:none;">مدیریت محصولات</a>
+        <a href="/admin/auth/user/" style="text-decoration:none;">مدیریت کاربران</a>
+      {% else %}
+        <a href="{% url 'cart' %}" style="text-decoration:none;">سبد خرید</a>
+      {% endif %}
+
+      <span style="opacity:.7;">{{ user.username }}</span>
+      <a href="{% url 'logout' %}" style="text-decoration:none;">خروج</a>
+
+    {% else %}
+      <a href="{% url 'login' %}" style="text-decoration:none;">ورود</a>
+      <a href="{% url 'register' %}" style="text-decoration:none;">ثبت‌نام</a>
+      <a href="{% url 'cart' %}" style="text-decoration:none;">سبد خرید</a>
+    {% endif %}
+
+  </nav>
+</header>
