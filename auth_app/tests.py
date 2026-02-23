@@ -11,7 +11,6 @@ class ProductModelTests(TestCase):
     """
     تست‌های مربوط به مدل Product
     """
-
     def setUp(self):
         self.product = Product.objects.create(
             name="Laptop",
