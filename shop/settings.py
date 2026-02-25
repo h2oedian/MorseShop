@@ -82,7 +82,7 @@ DATABASES = {
     )
 }
 
-# فقط اگر دیتابیس Postgres بود SSL رو ست کن
+# فقط اگر Postgres بود sslmode بده
 if DATABASES["default"]["ENGINE"] == "django.db.backends.postgresql":
     DATABASES["default"].setdefault("OPTIONS", {})
     DATABASES["default"]["OPTIONS"]["sslmode"] = "require"
