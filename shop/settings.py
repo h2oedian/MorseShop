@@ -22,9 +22,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-u8i@*8%%@fwn#j03yxc1c%&+y(66#blw&v!q!r#6h!m0r@e#@0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['Render']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -135,7 +135,3 @@ STATIC_URL = "static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-
-DATABASES = {
-    "default": dj_database_url.config(default="sqlite:///db.sqlite3")
-}
