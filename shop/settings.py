@@ -72,15 +72,15 @@ WSGI_APPLICATION = 'shop.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+import os
+import dj_database_url
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'root',
-        'USER':'zahra',
-        'PASSWORD':'2I10ypkIBYEYVUAG4MQSA1to',
-        'HOST': 'morseshop',
-        'PORT':'5432'
-    }
+    "default": dj_database_url.config(
+        default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}",
+        conn_max_age=600,
+        ssl_require=not DEBUG,  # روی سرور SSL
+    )
 }
 
 
